@@ -28,7 +28,7 @@ public class UserTypeFinder implements Function<SessionsCollection, String> {
                         .plusDays(1)
         );
 
-        long owlNightCount = Stream.iterate(startDay, day-> day.plusDays(1))
+        long owlNightCount = Stream.iterate(startDay, day -> day.plusDays(1))
                 .limit(nightCount.getDays())
                 .filter(day -> isHealthy(day, collection.sessions))
                 .filter(day -> {
