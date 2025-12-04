@@ -52,6 +52,7 @@ public class SleepTrackerAppTest {
         writer = new FileWriter(String.valueOf(fileLog));
         writer.close();
         sessionsCollection = new SessionsCollection(String.valueOf(fileLog));
+
         assertTrue(sessionsCollection.sessions.isEmpty());
 
         assertThrows(RuntimeException.class, () -> inputLog(String.valueOf(fileLog)));
