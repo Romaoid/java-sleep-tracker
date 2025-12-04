@@ -28,8 +28,8 @@ public class SleeplessNightFinder implements Function<SessionsCollection, String
                     boolean isHealthy = collection.sessions.stream()
                             .anyMatch(session -> {
                                 LocalDateTime startOfNight = day.atTime(0, 0);
-                                LocalDateTime EndOfNight = day.atTime(6, 0);
-                                return session.getStartSession().isBefore(EndOfNight) &&
+                                LocalDateTime endOfNight = day.atTime(6, 0);
+                                return session.getStartSession().isBefore(endOfNight) &&
                                         session.getEndSession().isAfter(startOfNight);
                             });
                     return !isHealthy;
@@ -37,5 +37,4 @@ public class SleeplessNightFinder implements Function<SessionsCollection, String
                 .count();
         return "Всего бессонных ночей: " + sleeplessCounter;
     }
-
 }

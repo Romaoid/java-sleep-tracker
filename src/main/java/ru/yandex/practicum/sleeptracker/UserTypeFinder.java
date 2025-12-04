@@ -71,8 +71,8 @@ public class UserTypeFinder implements Function<SessionsCollection, String> {
                     return collection.sessions.stream()
                             .anyMatch(session -> {
                                 LocalDateTime startOfNight = day.atTime(0, 0);
-                                LocalDateTime EndOfNight = day.atTime(6, 0);
-                                return session.getStartSession().isBefore(EndOfNight) &&
+                                LocalDateTime endOfNight = day.atTime(6, 0);
+                                return session.getStartSession().isBefore(endOfNight) &&
                                         session.getEndSession().isAfter(startOfNight);
                             });
                 })
